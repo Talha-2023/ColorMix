@@ -6,7 +6,6 @@
 }
 body {
   font-family: "Inter", sans-serif;
-  font-size: 62.5%;
   background-color: #f3f3f3;
 }
 a {
@@ -28,9 +27,10 @@ ul li {
   --borderWhite: 1px groove #d1d7dc;
   --lightBlack: #11121e;
   --darkBlack: #1d1d29;
-  --selectBox: #f2f7ff;
+  --selectBox: #dbe9ff;
   --border-r-default: 0.5rem;
   --smooth-Box-Shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+  --icon-bg: #f2f7ff;
 }
 /*common*/
 .flex {
@@ -44,7 +44,19 @@ ul li {
 .txt-cap {
   text-transform: capitalize;
 }
-
+.aside-m-left {
+  margin-left: 3rem;
+}
+.iconsBg {
+  background-color: var(--icon-bg);
+  padding: 0.25rem;
+  border-radius: 0.3rem;
+  width: fit-content;
+  border: var(--borderWhite);
+  &:hover {
+    background-color: var(--selectBox);
+  }
+}
 /*Css*/
 nav {
   /* border: 1px solid red; */
@@ -54,6 +66,10 @@ nav {
   justify-content: space-between;
   width: 100vw;
   position: relative;
+
+  & * {
+    transition: 0.2s ease-out;
+  }
 }
 .logoContainer {
   /* border: 1px solid red; */
@@ -75,6 +91,7 @@ nav {
   border-radius: 50%;
   padding: 0.3rem;
   cursor: pointer;
+
   &:hover {
     background-color: var(--selectBox);
   }
@@ -83,6 +100,7 @@ nav {
 nav .navigate li {
   border-radius: var(--border-r-default);
   cursor: pointer;
+
   &:hover {
     background-color: var(--selectBox);
   }
@@ -116,14 +134,55 @@ nav .navigate li {
     background-color: var(--selectBox);
   }
 }
-
+/**==========Asidebar============== */
 aside {
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
   width: 3rem;
   height: calc(100vh - 58.9px);
-  background-color: red;
+  background-color: var(--lightWhite);
+  border-right: var(--borderWhite);
   position: fixed;
+  padding-top: 1rem;
 }
-/* *media */
+.asideIcons {
+  width: 70%;
+  height: fit-content;
+  cursor: pointer;
+  position: relative;
+
+  &:hover .asideIconName {
+    display: block;
+  }
+}
+.asideIconName {
+  display: none;
+  position: absolute;
+  text-wrap: nowrap;
+  left: 3rem;
+  top: 0;
+  border: var(--borderWhite);
+  background-color: var(--lightWhite);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--smooth-Box-Shadow);
+  transition: 0.1s ease-in-out;
+  &::before {
+    content: "";
+    position: absolute;
+    border-bottom: var(--borderWhite);
+    border-right: var(--borderWhite);
+    top: 0.7rem;
+    left: -0.5rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    rotate: 135deg;
+    background-color: var(--lightWhite);
+  }
+}
+
+/**==============Media============== */
 @media screen and (max-width: 860px) {
   .profile {
     display: none;

@@ -1,0 +1,13 @@
+nav =  Home | color history | community | Favorites | tutorials ---   light/dark ----------login
+
+Gradient Creator
+Text Gradient
+Trending Palettes
+Palette Generator
+Image Color Picker
+Average Image Color
+Color Picker
+Random Colors
+Color Shades
+Shadow Generator
+Color Converter

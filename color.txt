@@ -1,0 +1,9 @@
+lightWhite = FFFFFF
+darkwhite = f3f3f3
+borderwhite=#d1d7dc
+
+lightblack = 11121E
+darkblack = 1d1d29
+borderblack =363b45
+
+selectBox = #f2f7ff

@@ -79,3 +79,64 @@ moon.addEventListener("click", () => {
   moon.style.display = "none";
   console.log("first");
 });
+
+//!==================================================================PageSwitch
+
+document.addEventListener("DOMContentLoaded", function () {
+  const contentDiv = document.querySelector(".contentContainer");
+
+  function loadPage(page) {
+    fetch(page)
+      .then((response) => response.text())
+      .then((html) => {
+        contentDiv.innerHTML = html;
+        history.pushState({ page }, "", `#${page}`);
+      })
+      .catch((error) => {
+        contentDiv.innerHTML = `<h3>Error loading this page "${error}".</h3>`;
+      });
+  }
+
+  function setActiveLink(link) {
+    const page = link.getAttribute("data-page");
+
+    document.querySelectorAll("a[data-page]").forEach((navLink) => {
+      navLink.parentElement.classList.remove("selected");
+    });
+
+    document.querySelectorAll(`a[data-page="${page}"]`).forEach((navLink) => {
+      navLink.parentElement.classList.add("selected");
+    });
+  }
+
+  document.querySelectorAll("a[data-page]").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const page = this.getAttribute("data-page");
+      loadPage(page);
+      setActiveLink(this);
+    });
+  });
+
+  window.addEventListener("popstate", function (e) {
+    if (e.state) {
+      loadPage(e.state.page);
+      const currentLink = document.querySelector(
+        `a[data-page="${e.state.page}"]`
+      );
+      if (currentLink) {
+        setActiveLink(currentLink);
+      }
+    }
+  });
+
+  const initialPage =
+    location.hash.replace("#", "") || "/Pages/TextGradient/textGradient.html";
+
+  loadPage(initialPage);
+
+  const initialLink = document.querySelector(`a[data-page="${initialPage}"]`);
+  if (initialLink) {
+    setActiveLink(initialLink);
+  }
+});

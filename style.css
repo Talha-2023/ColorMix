@@ -78,7 +78,7 @@ html * {
 }
 .iconsBg {
   background-color: var(--icon-bg);
-  padding: 0.25rem;
+  padding: 0rem;
   border-radius: 0.3rem;
   width: fit-content;
   border: var(--borderWhite);
@@ -110,6 +110,11 @@ nav {
   width: 7rem;
   margin-top: -0.8rem;
   position: relative;
+}
+.logoBlack {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 0px 5px white;
 }
 
 .linesBar {
@@ -227,8 +232,12 @@ aside::-webkit-scrollbar-track {
   cursor: pointer;
   position: relative;
 
+  & a {
+    padding: 0.2rem;
+  }
   & img {
     filter: var(--svgColor);
+    margin-bottom: -5px;
   }
   &:hover .asideIconName {
     display: block;
@@ -277,6 +286,17 @@ aside::-webkit-scrollbar-track {
 }
 
 /**==================bigaside============*/
+.toolContainer {
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  overflow: auto;
+  height: 100%;
+  padding: 2rem 1rem;
+  /* border: 1px solid red; */
+}
 .toggleAside .logoContainer {
   padding: 0 0.7rem;
 }
@@ -285,16 +305,16 @@ aside::-webkit-scrollbar-track {
   padding: 1.2rem 0;
 }
 .nameTools {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 900;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   border-bottom: var(--borderWhite);
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 2rem;
-
+  padding: 0 2rem 1rem;
   & img {
-    width: 2rem;
+    width: 1.5rem;
   }
 }
 
@@ -305,9 +325,17 @@ aside::-webkit-scrollbar-track {
   align-items: center;
   width: 100%;
   gap: 1rem;
-
-  padding: 0.5rem 0.8rem;
   border-radius: 8px;
+  /* border: 1px solid red; */
+  & a {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
   & img {
     width: 1.4rem;
     filter: var(--svgColor);
@@ -318,16 +346,8 @@ aside::-webkit-scrollbar-track {
     /* border: var(--borderWhite); */
   }
 }
-.toolContainer {
-  width: 100%;
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  /* border: 1px solid red; */
-  overflow: auto;
-  height: 100%;
-  padding: 3rem 1rem;
+a {
+  display: block;
 }
 /**===============================================================*/
 .displaySection {
@@ -360,13 +380,16 @@ aside::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
-.container {
-  width: 250px;
+.contentContainer {
+  max-width: 1300px;
+  width: 100%;
   height: fit-content;
+  /* border: 1px solid red; */
+  padding: 0.5rem;
 }
 
 /**==============Media============== */
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 915px) {
   .profile {
     display: none;
   }
@@ -409,11 +432,11 @@ aside::-webkit-scrollbar-track {
     display: block;
   }
 
-  nav .navigate {
+  /* nav .navigate {
     margin-right: -7.5rem;
-  }
+  } */
 }
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 695px) {
   /* .navigate {
     display: none;
     position: absolute;
@@ -425,7 +448,7 @@ aside::-webkit-scrollbar-track {
   nav .navigate {
     display: none;
     position: absolute;
-    right: 11rem;
+    right: 3.5rem;
     top: 4.2rem;
     background-color: var(--lightWhite);
     box-shadow: var(--smooth-Box-Shadow);

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color Mix ✨</title>
+    <title>Color Mix✨</title>
     <!--==FavIcon==-->
     <link
       rel="apple-touch-icon"
@@ -39,8 +39,13 @@
         <div class="linesBar f-center" onclick="revelAside()">
           <img src="Assets/Icons/3lines.svg" width="100%" alt="" />
         </div>
-        <div class="logo f-center">
-          <img src="Assets/Images/logo.png" width="100%" alt="logo" />
+        <div class="logo logoBlack f-center">
+          <img
+            src="Assets/Images/logo.png"
+            width="100%"
+            alt="logo"
+            fetchpriority="high"
+          />
         </div>
       </div>
       <ul class="navigate f-center">
@@ -74,67 +79,148 @@
       </div>
     </nav>
     <aside class="flex aside">
-      <div class="asideIcons iconsBg selected">
-        <img src="Assets/Icons/text.svg" alt="" width="100%" />
-        <p class="asideIconName">Text Gradient</p>
+      <div class="asideIcons iconsBg">
+        <a href="#" data-page="/Pages/TextGradient/textGradient.html">
+          <img src="Assets/Icons/text.svg" alt="" width="100%" />
+          <p class="asideIconName">Text Gradient</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/gradient.svg" alt="" width="100%" />
-        <p class="asideIconName">Gradient Creator</p>
+        <a href="#" data-page="/Pages/GradientCreator/gradientCreator.html">
+          <img src="Assets/Icons/gradient.svg" alt="" width="100%" />
+          <p class="asideIconName">Gradient Creator</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/trending.svg" alt="" width="100%" />
-        <p class="asideIconName">Trending Palettes</p>
+        <a href="#" data-page="/Pages/TrendingPalettes/trendingPalettes.html">
+          <img src="Assets/Icons/trending.svg" alt="" width="100%" />
+          <p class="asideIconName">Trending Palettes</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/imageColorPicker.svg" alt="" width="100%" />
-        <p class="asideIconName">Image Color Picker</p>
+        <a href="" data-page="/Pages/ImageColorPicker/imageColorPicker.html">
+          <img src="Assets/Icons/imageColorPicker.svg" alt="" width="100%" />
+          <p class="asideIconName">Image Color Picker</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/AverageImg.svg" alt="" width="100%" />
-        <p class="asideIconName">Average Image Color</p>
+        <a href="#" data-page="/Pages/AverageImageColor/averageImageColor.html">
+          <img src="Assets/Icons/AverageImg.svg" alt="" width="100%" />
+          <p class="asideIconName">Average Image Color</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/colorPicker.svg" alt="" width="100%" />
-        <p class="asideIconName">Color Picker</p>
+        <a href="#" data-page="/Pages/ColorPicker/colorPicker.html">
+          <img src="Assets/Icons/colorPicker.svg" alt="" width="100%" />
+          <p class="asideIconName">Color Picker</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/randomColors.svg" alt="" width="100%" />
-        <p class="asideIconName">Random Colors</p>
+        <a href="#" data-page="/Pages/RandomColors/randomColors.html">
+          <img src="Assets/Icons/randomColors.svg" alt="" width="100%" />
+          <p class="asideIconName">Random Colors</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/colorShades.svg" alt="" width="100%" />
-        <p class="asideIconName">Color Shades</p>
+        <a href="#" data-page="/Pages/ColorShades/colorShades.html">
+          <img src="Assets/Icons/colorShades.svg" alt="" width="100%" />
+          <p class="asideIconName">Color Shades</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/shadowGenerator.svg" alt="" width="100%" />
-        <p class="asideIconName">Shadow Generator</p>
+        <a href="#" data-page="/Pages/ShadowGenerator/shadowGenerator.html">
+          <img src="Assets/Icons/shadowGenerator.svg" alt="" width="100%" />
+          <p class="asideIconName">Shadow Generator</p>
+        </a>
       </div>
       <div class="asideIcons iconsBg">
-        <img src="Assets/Icons/colorConverter.svg" alt="" width="100%" />
-        <p class="asideIconName">Color Converter</p>
+        <a href="#" data-page="/Pages/ColorConverter/colorConverter.html">
+          <img src="Assets/Icons/colorConverter.svg" alt="" width="100%" />
+          <p class="asideIconName">Color Converter</p>
+        </a>
       </div>
     </aside>
+
     <div class="toggleAside bigtoggleAside">
       <div class="logoContainer f-center">
         <div class="linesBar f-center" onclick="revelAside()">
           <img src="Assets/Icons/3lines.svg" width="100%" alt="" />
         </div>
-        <div class="logo f-center">
+        <div class="logo logoBlack f-center">
           <img src="Assets/Images/logo.png" width="100%" alt="logo" />
         </div>
       </div>
-
       <div class="toolContainer">
         <div class="nameTools">
           Tools <img src="Assets/Icons/star.svg" alt="" />
         </div>
 
-        <div class="bigAsideTools selected">
-          <img src="Assets/Icons/text.svg" alt="" width="100%" />
-          <p class="">Text Gradient</p>
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/TextGradient/textGradient.html">
+            <img src="Assets/Icons/text.svg" alt="" width="100%" />
+            <p class="">Text Gradient</p>
+          </a>
+        </div>
+
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/GradientCreator/gradientCreator.html">
+            <img src="Assets/Icons/gradient.svg" alt="" width="100%" />
+            <p class="">Gradient Creator</p>
+          </a>
         </div>
         <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/TrendingPalettes/trendingPalettes.html">
+            <img src="Assets/Icons/trending.svg" alt="" width="100%" />
+            <p class="">Trending Palettes</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a href="" data-page="/Pages/ImageColorPicker/imageColorPicker.html">
+            <img src="Assets/Icons/imageColorPicker.svg" alt="" width="100%" />
+            <p class="">Image Color Picker</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a
+            href="#"
+            data-page="/Pages/AverageImageColor/averageImageColor.html"
+          >
+            <img src="Assets/Icons/AverageImg.svg" alt="" width="100%" />
+            <p class="">Average Image Color</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/ColorPicker/colorPicker.html">
+            <img src="Assets/Icons/colorPicker.svg" alt="" width="100%" />
+            <p class="">Color Picker</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/RandomColors/randomColors.html">
+            <img src="Assets/Icons/randomColors.svg" alt="" width="100%" />
+            <p class="">Random Colors</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/ColorShades/colorShades.html">
+            <img src="Assets/Icons/colorShades.svg" alt="" width="100%" />
+            <p class="">Color Shades</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/ShadowGenerator/shadowGenerator.html">
+            <img src="Assets/Icons/shadowGenerator.svg" alt="" width="100%" />
+            <p class="">Shadow Generator</p>
+          </a>
+        </div>
+        <div class="bigAsideTools">
+          <a href="#" data-page="/Pages/ColorConverter/colorConverter.html">
+            <img src="Assets/Icons/colorConverter.svg" alt="" width="100%" />
+            <p class="">Color Converter</p>
+          </a>
+        </div>
+
+        <!-- <div class="bigAsideTools">
           <img src="Assets/Icons/gradient.svg" alt="" width="100%" />
           <p class="">Gradient Creator</p>
         </div>
@@ -169,125 +255,12 @@
         <div class="bigAsideTools">
           <img src="Assets/Icons/colorConverter.svg" alt="" width="100%" />
           <p class="">Color Converter</p>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <section class="aside-m-left-max displaySection aside-m-left">
-      <div class="container">
-        talhah Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam,
-        quia. Temporibus, ducimus. Officiis pariatur odit hic dicta ab
-        voluptatibus, deserunt repellat eligendi rerum voluptas officia itaque,
-        magnam veritatis amet nam quis excepturi obcaecati perspiciatis? Aliquid
-        praesentium molestiae debitis labore ipsam voluptatibus tempore iure
-        necessitatibus sit fugit deleniti impedit aliquam dignissimos laborum,
-        rem eaque ab. Eum animi dicta, amet nulla vitae enim! Repellat atque
-        molestias maiores inventore eveniet tempore repudiandae, accusamus
-        consequuntur laborum fuga doloribus, corporis molestiae? Voluptatibus
-        quia quo libero nostrum doloribus? Natus, placeat! Eveniet assumenda
-        error, voluptates, possimus, quo sequi cupiditate nulla maiores a
-        recusandae fugiat! Quis, veniam! Placeat dolorem odit pariatur! Officia
-        sequi nulla voluptate voluptatibus labore eveniet magnam aut repellat
-        eligendi, aspernatur obcaecati rem distinctio quaerat temporibus dolor,
-        repellendus suscipit, voluptas debitis. Esse dignissimos totam nobis
-        deserunt tempora ut aperiam ab perferendis aut, saepe mollitia
-        distinctio exercitationem recusandae dolores tenetur minima laudantium
-        rem eius quod reiciendis temporibus quasi minus magni! Dolorum, eaque
-        natus reprehenderit aspernatur, minus nihil obcaecati ab quod, voluptas
-        eveniet cum. Expedita labore rerum minima eos veniam quo, molestias
-        itaque officia sint deserunt voluptates saepe vitae molestiae velit
-        nostrum voluptatibus tempora recusandae qui eveniet at nihil?
-        Voluptatibus placeat corrupti, quo eos ratione nisi maiores ipsam
-        voluptas recusandae molestias! Ut, natus amet suscipit eveniet quia sed
-        odit ullam eos libero blanditiis eius sit laboriosam animi reiciendis
-        aut possimus voluptatem iusto hic! Incidunt quae esse officiis minima,
-        laborum eum numquam consequatur odit ratione animi molestiae amet nam at
-        atque adipisci cum sed pariatur ad doloremque quam eligendi quibusdam ex
-        obcaecati laudantium. Maxime architecto repudiandae et. Molestiae
-        aliquid deserunt molestias, a blanditiis saepe earum ipsam laboriosam
-        voluptatum dolor voluptatibus ipsum cum eius pariatur consequatur? Modi
-        odit ad consequatur, quas quam excepturi dolorem laboriosam magnam
-        placeat sed a possimus unde. Nesciunt molestias possimus accusantium
-        quasi quod explicabo dignissimos adipisci architecto necessitatibus
-        aliquid id omnis impedit, laboriosam sit! Vero adipisci aut voluptas,
-        minus exercitationem quo, architecto veniam veritatis labore quidem at
-        maiores repudiandae iste hic sed, tempora consequatur quaerat! Dolores
-        recusandae reprehenderit tempore expedita veritatis praesentium magni
-        rem, quaerat fugit esse illum corrupti sunt cum. Tempora dolore ad eaque
-        laboriosam sapiente veniam consequuntur aliquam natus ipsam eveniet eos,
-        excepturi repudiandae inventore eum incidunt explicabo quae nostrum
-        molestiae. Consequatur suscipit possimus dolor maxime, porro voluptates
-        error exercitationem fugit laudantium voluptatem officiis, molestiae
-        praesentium iusto dicta corrupti similique aspernatur temporibus aut?
-        Ducimus natus quas in hic, nisi reiciendis, animi repellat quisquam nam
-        itaque voluptates, debitis aspernatur temporibus eius! Nam eius
-        perspiciatis, quasi odit, veritatis corrupti debitis maxime nemo,
-        impedit tempora magni officia fugit veniam obcaecati delectus beatae
-        expedita doloribus. Eos totam odit iusto, fuga facere aliquam
-        reprehenderit molestiae repellendus necessitatibus harum, quos
-        laudantium sequi optio, odio earum asperiores voluptas deleniti? Unde a
-        distinctio quos quasi ipsum dolorem quam error vel nostrum vitae
-        adipisci minima sunt provident, optio magnam harum perferendis officia
-        corporis repudiandae enim itaque iste minus atque. Porro architecto in
-        placeat doloremque unde, corporis possimus suscipit quidem officiis quod
-        dicta maxime laborum soluta nihil blanditiis nam repudiandae similique
-        id quaerat incidunt illo atque. Velit aliquam enim pariatur deserunt ex
-        repellendus dolore fugiat vitae perferendis suscipit voluptate incidunt
-        ratione, corrupti omnis numquam sint ducimus, nihil dolorum? Aperiam,
-        voluptatibus? Quos autem magni deleniti quas vitae, eligendi delectus
-        quidem provident a, dolorem deserunt earum mollitia! Magni reprehenderit
-        iusto, nesciunt, consectetur nulla sed perferendis ullam cumque
-        consequatur eos doloremque officia repellat vero blanditiis expedita
-        voluptatibus culpa deleniti modi hic voluptas. Et fuga magni neque quo
-        quidem nobis sapiente, voluptatibus dolore pariatur voluptatem officiis
-        expedita facilis doloremque optio amet illo enim vel possimus aut. Magni
-        repellendus fuga iste perferendis vero. Illo ea placeat, iste ut eveniet
-        omnis unde at rerum quo molestiae magni iure, veritatis suscipit
-        nesciunt inventore! Fugit distinctio, at nisi recusandae voluptates
-        accusamus numquam tempore exercitationem porro molestiae veritatis quis
-        deserunt ex perferendis corporis, necessitatibus reprehenderit. Magnam
-        nobis quia repudiandae error pariatur exercitationem, nam, aut eaque
-        perferendis repellat magni maxime consectetur iusto eligendi ratione
-        incidunt numquam cumque repellendus voluptatibus qui consequatur omnis.
-        Atque suscipit distinctio totam quisquam doloribus aspernatur iure
-        voluptates, ea, ducimus est quae velit odit eos corrupti laboriosam
-        eaque ab ipsa. Molestias aliquid illum expedita quasi eum molestiae in!
-        Rerum est quisquam dolor cupiditate quas minus nesciunt aperiam eligendi
-        dolores doloremque. Iusto et similique nulla fugit laboriosam unde
-        accusantium eos ipsum fuga dolorem illo culpa tempora inventore nostrum
-        eius quidem sed architecto officia, aut ipsa quas impedit obcaecati
-        praesentium? Natus doloremque enim sed facilis. Id asperiores, impedit
-        modi est, ex odio, iusto totam voluptatibus tempora corrupti architecto?
-        Quis sed impedit minus fugit recusandae beatae quibusdam ad delectus
-        perferendis amet illo assumenda magnam asperiores, cum consectetur ipsa
-        sit totam, corrupti quam officia maxime ea rem? Magnam iure magni,
-        nostrum repudiandae laboriosam eveniet reprehenderit atque vitae,
-        ducimus culpa, impedit quam ex quas excepturi. Sit nesciunt, quas
-        possimus laborum mollitia, dignissimos vel rem, illo eum earum tenetur
-        repellendus fugiat dicta tempora? Corporis iure, quae deserunt soluta
-        nihil in excepturi impedit hic officiis, ipsa architecto, animi placeat
-        maiores. Tempore minus labore, amet laudantium ipsum atque autem impedit
-        delectus! Hic nesciunt reiciendis dolorum illo qui voluptatibus impedit
-        nisi laboriosam ratione optio earum nemo veritatis, aliquid, quis
-        eligendi iusto, dignissimos minus odio officia? Fuga eum natus molestiae
-        recusandae consectetur, laboriosam voluptates eveniet error atque
-        reiciendis dolores sequi asperiores. Ipsum ipsa aliquid voluptatem,
-        architecto temporibus nemo omnis quibusdam ad animi illum! Dolorem
-        veniam neque officiis aperiam harum ipsum eos dolores vitae culpa
-        recusandae, corporis dicta numquam ratione! Tempora nesciunt hic
-        distinctio ullam, rerum recusandae illo atque necessitatibus nisi
-        blanditiis temporibus tempore ab mollitia consequuntur facere deleniti
-        omnis autem beatae eos suscipit perferendis? Corrupti maxime nobis nam
-        optio repellendus praesentium sunt, aspernatur eaque ducimus culpa
-        maiores, ad ullam sequi dignissimos dicta dolore! Iste at sit
-        exercitationem recusandae aperiam itaque molestiae officiis aliquid
-        error, dolorum, quas aliquam! Dolores veritatis ea praesentium eveniet
-        voluptatum illum laudantium suscipit commodi expedita, inventore
-        explicabo ipsa fugit, aspernatur, rerum excepturi molestias ut ad? Esse
-        alias ex, molestiae placeat eos molestias modi dolore! Sapiente, vero
-        harum. Obcaecati distinctio perspiciatis a illum harum placeat voluptas
-        maiores explicabo. Consectetur! talha
-      </div>
+      <div class="contentContainer">Tools pages are printing here</div>
     </section>
     <script src="main.js"></script>
   </body>

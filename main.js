@@ -1,4 +1,4 @@
-//!========================================== Toggle signin and signup button in mobile
+//!================================================== Toggle signin and signup button in mobile
 
 let profile = document.querySelector(".profile");
 let profileIcon = document.querySelector(".profileIcon");
@@ -13,6 +13,7 @@ profileIcon.onclick = () => {
 // let linesBar = document.querySelector(".linesBar");
 let toggleAside = document.querySelector(".toggleAside");
 let displaySection = document.querySelector(".displaySection");
+let smallAside = document.querySelector(".aside");
 // let linesBarClose = document.querySelector(".linesBarClose");
 // linesBar.addEventListener("click", () => {
 //   aside.style.width = "13rem";
@@ -23,6 +24,7 @@ let displaySection = document.querySelector(".displaySection");
 function revelAside() {
   toggleAside.classList.toggle("bigtoggleAside");
   displaySection.classList.toggle("aside-m-left-max");
+  smallAside.classList.toggle("transition");
 }
 
 //!==========================================================================toggle nav
@@ -82,18 +84,90 @@ moon.addEventListener("click", () => {
 
 //!==================================================================PageSwitch
 
+// document.addEventListener("DOMContentLoaded", function () {
+//   const contentDiv = document.querySelector(".contentContainer");
+
+//   function loadPage(page) {
+//     fetch(page)
+//       .then((response) => response.text())
+//       .then((html) => {
+//         contentDiv.innerHTML = html;
+//         history.pushState({ page }, "", `#${page}`);
+//       })
+//       .catch((error) => {
+//         contentDiv.innerHTML = `<h3>Error loading this page "${error}".</h3>`;
+//       });
+//   }
+
+//   function setActiveLink(link) {
+//     const page = link.getAttribute("data-page");
+
+//     document.querySelectorAll("a[data-page]").forEach((navLink) => {
+//       navLink.parentElement.classList.remove("selected");
+//     });
+
+//     document.querySelectorAll(`a[data-page="${page}"]`).forEach((navLink) => {
+//       navLink.parentElement.classList.add("selected");
+//     });
+//   }
+
+//   document.querySelectorAll("a[data-page]").forEach((link) => {
+//     link.addEventListener("click", function (e) {
+//       e.preventDefault();
+//       const page = this.getAttribute("data-page");
+//       loadPage(page);
+//       setActiveLink(this);
+//     });
+//   });
+
+//   window.addEventListener("popstate", function (e) {
+//     if (e.state) {
+//       loadPage(e.state.page);
+//       const currentLink = document.querySelector(
+//         `a[data-page="${e.state.page}"]`
+//       );
+//       if (currentLink) {
+//         setActiveLink(currentLink);
+//       }
+//     }
+//   });
+
+//   const initialPage =
+//     location.hash.replace("#", "") || "/Pages/TextGradient/textGradient.html";
+
+//   loadPage(initialPage);
+
+//   const initialLink = document.querySelector(`a[data-page="${initialPage}"]`);
+//   if (initialLink) {
+//     setActiveLink(initialLink);
+//   }
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
   const contentDiv = document.querySelector(".contentContainer");
+  const loader = document.getElementById("loader");
+
+  function showLoader() {
+    loader.style.display = "block";
+  }
+
+  function hideLoader() {
+    loader.style.display = "none";
+  }
 
   function loadPage(page) {
+    setTimeout(showLoader, 1);
+
     fetch(page)
       .then((response) => response.text())
       .then((html) => {
         contentDiv.innerHTML = html;
         history.pushState({ page }, "", `#${page}`);
+        hideLoader();
       })
       .catch((error) => {
         contentDiv.innerHTML = `<h3>Error loading this page "${error}".</h3>`;
+        hideLoader();
       });
   }
 
@@ -138,5 +212,89 @@ document.addEventListener("DOMContentLoaded", function () {
   const initialLink = document.querySelector(`a[data-page="${initialPage}"]`);
   if (initialLink) {
     setActiveLink(initialLink);
+  }
+});
+
+// !===============================================================Bigaside toggle when phone width is 700px
+
+window.addEventListener("DOMContentLoaded", () => {
+  function checkViewportSize() {
+    const vpWidth = window.innerWidth;
+
+    if (vpWidth <= 750 && vpWidth >= 600) {
+      toggleAside.classList.remove("bigtoggleAside");
+      displaySection.classList.remove("aside-m-left-max");
+    }
+    if (vpWidth >= 750) {
+      toggleAside.classList.add("bigtoggleAside");
+      displaySection.classList.add("aside-m-left-max");
+    }
+    //adding revelnac class to still get nav after 600px small
+    // if (vpWidth <= 600) {
+    //   navigate.classList.add("revelNav");
+    // }
+  }
+
+  checkViewportSize();
+  window.addEventListener("resize", checkViewportSize);
+});
+
+//!================================================================= nav toggle in small phones
+function revelNavFun() {
+  navigate.classList.toggle("revelNav");
+  profile.classList.remove("revelButton");
+}
+
+//!==================================================================Swiper Tool container
+
+let swipeBox = document.querySelector(".swiperUpDown");
+
+let touchStartY = 0;
+let touchEndY = 0;
+
+function handleGesture() {
+  if (touchStartY > touchEndY) {
+    toggleAside.style.transform = "translateY(0)";
+    arrowUpDown.classList.toggle("handleTranslate");
+
+    // console.log("trigger up");
+    // console.log("start: " + touchStartY);
+    // console.log("end: " + touchEndY);
+  } else if (touchStartY < touchEndY) {
+    toggleAside.style.transform = "translateY(88%)";
+    arrowUpDown.classList.toggle("handleTranslate");
+
+    // console.log("trigger down");
+    // console.log("start: " + touchStartY);
+    // console.log("end: " + touchEndY);
+  }
+}
+
+swipeBox.addEventListener(
+  "touchstart",
+  function (e) {
+    touchStartY = e.changedTouches[0].screenY;
+  },
+  false
+);
+swipeBox.addEventListener(
+  "touchend",
+  function (e) {
+    touchEndY = e.changedTouches[0].screenY;
+
+    handleGesture();
+  },
+  false
+);
+
+let arrowUpDown = document.querySelector(".arrowUpDown");
+
+arrowUpDown.addEventListener("click", () => {
+  arrowUpDown.classList.toggle("handleTranslate");
+  let up = arrowUpDown.classList.contains("handleTranslate");
+  if (up) {
+    toggleAside.style.transform = "translateY(0)";
+  } else {
+    toggleAside.style.transform = "translateY(88%)";
   }
 });

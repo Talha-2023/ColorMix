@@ -32,9 +32,10 @@ ul li {
   --borderWhite: 1px groove #d1d7dc;
   --lightSelected: linear-gradient(
     190deg,
-    rgb(157, 255, 255) 0%,
-    rgb(206, 169, 255) 100%
+    rgb(172, 255, 243) 0%,
+    rgb(156, 162, 255) 100%
   );
+
   /* dark */
   --lightBlack: #11121e;
   --darkBlack: #1d1d29;
@@ -89,6 +90,14 @@ html * {
 .selected {
   background: var(--lightSelected);
 }
+@keyframes smoothFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /**============NavBar==============================*/
 nav {
   /* border: 1px solid red; */
@@ -103,22 +112,25 @@ nav {
 .logoContainer {
   /* border: 1px solid red; */
   width: fit-content;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .logo {
   width: 7rem;
-  margin-top: -0.8rem;
+  margin-top: -0.45rem;
   position: relative;
 }
 .logoBlack {
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0px 5px 0px 5px white;
+  box-shadow: 0px 4px 0px 5px white;
 }
 
-.linesBar {
+.linesBar,
+.revelNavBtn {
   width: 1.3rem;
+  margin-top: 0.45rem;
+
   cursor: pointer;
   /* background-color: rebeccapurple;  */
   & img {
@@ -149,6 +161,7 @@ nav .navigate li {
 .profile ul li {
   border-radius: var(--border-r-default);
   cursor: pointer;
+
   &:hover {
     background-color: var(--selectBox);
   }
@@ -159,7 +172,7 @@ nav .navigate li {
     rgb(60, 214, 214) 0%,
     rgb(111, 0, 255) 100%
   );
-  color: white;
+
   font-weight: 500;
   border-radius: var(--border-r-default);
 
@@ -174,9 +187,12 @@ nav .navigate li {
   cursor: pointer;
   display: none;
   margin: 0 0.8rem;
-
   &:hover {
     background-color: var(--selectBox);
+  }
+  & img {
+    filter: var(--svgColor);
+    margin-bottom: -0.2rem;
   }
 }
 .navToggle {
@@ -187,24 +203,49 @@ nav .navigate li {
     cursor: pointer;
     margin-right: 0.5rem;
     margin-top: -0.2rem;
+
     &:hover {
       background-color: var(--selectBox);
     }
   }
 }
-.navOpen,
-.navClose {
+.navOpen {
   display: none;
+  filter: var(--svgColor);
 }
 #moon {
   display: none;
+  animation: spin 0.2s linear;
+  margin-bottom: -0.3rem;
+}
+#sun {
+  animation: spin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-bottom: -0.3rem;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+.revelNavBtn {
+  display: none;
+}
+.nameAndClose {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: var(--lightWhite);
+  border-bottom: var(--borderWhite);
 }
 /**==========Asidebar============== */
 aside {
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  top: 3.8rem;
+  top: 3.6rem;
   /* width: 13rem; */
   width: 3rem;
   height: calc(100vh - 58.9px);
@@ -212,6 +253,9 @@ aside {
   border-right: var(--borderWhite);
   position: fixed;
   padding-top: 2rem;
+}
+.aside.transition {
+  transform: translateX(-10rem);
 }
 
 aside::-webkit-scrollbar {
@@ -299,20 +343,32 @@ aside::-webkit-scrollbar-track {
 }
 .toggleAside .logoContainer {
   padding: 0 0.7rem;
+  .linesBar {
+    width: 1.5rem;
+    rotate: 180deg;
+  }
 }
 .bigtoggleAside {
   transform: translateX(0);
   padding: 1.2rem 0;
 }
+.swiperUpDown {
+  display: none;
+}
 .nameTools {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 900;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #2b4162;
+  background-image: linear-gradient(365deg, #ffffff 0%, #e84393 74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   border-bottom: var(--borderWhite);
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 2rem;
   padding: 0 2rem 1rem;
+  text-shadow: 0px 0px 30px #ff007b;
   & img {
     width: 1.5rem;
   }
@@ -348,6 +404,22 @@ aside::-webkit-scrollbar-track {
 }
 a {
   display: block;
+}
+.UpDownBox {
+  margin-top: -1rem;
+  margin-right: -1rem;
+  width: 3rem;
+  height: 3rem;
+}
+.arrowUpDown {
+  rotate: 90deg;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  filter: var(--svgColor);
+}
+.arrowUpDown.handleTranslate {
+  rotate: 270deg;
+  margin-top: -10px;
 }
 /**===============================================================*/
 .displaySection {
@@ -388,6 +460,30 @@ a {
   padding: 0.5rem;
 }
 
+/******************************************/
+.loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5rem solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.5rem solid #1f52c6;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 0.3s ease-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /**==============Media============== */
 @media screen and (max-width: 915px) {
   .profile {
@@ -398,19 +494,19 @@ a {
     position: absolute;
     top: 4.2rem;
     right: 0.5rem;
-    background-color: white;
+    background-color: var(--lightWhite);
     padding: 1rem;
     border-radius: 12px;
     border: var(--borderWhite);
     box-shadow: var(--smooth-Box-Shadow);
-
+    animation: smoothFade 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
     &::before {
       content: "";
       width: 1.5rem;
       height: 1.5rem;
       border-left: var(--borderWhite);
       border-bottom: var(--borderWhite);
-      background: #ffffff;
+      background: var(--lightWhite);
       top: -0.9rem;
       right: 1.2rem;
       position: absolute;
@@ -424,10 +520,11 @@ a {
     }
     & ul li {
       margin-left: 0rem;
-      background-color: #e8e8ff;
+      background-color: var(--selectBox);
       z-index: 1;
     }
   }
+
   .profileIcon {
     display: block;
   }
@@ -446,6 +543,8 @@ a {
     display: block;
   }
   nav .navigate {
+    animation: smoothFade 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
+
     display: none;
     position: absolute;
     right: 3.5rem;
@@ -485,5 +584,132 @@ a {
   }
   .navOpen {
     display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  .toggleAside {
+    top: auto;
+    bottom: 0;
+    transform: translateX(0rem) translateY(88%);
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    border-radius: 1rem 1rem 0 0;
+    border: var(--borderWhite);
+    height: 50vh;
+    & .logoContainer {
+      display: none;
+    }
+    & .swiperUpDown {
+      display: block;
+      width: 100%;
+    }
+    & .drag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img {
+        width: 5vh;
+      }
+    }
+    & .nameTools {
+      display: none;
+      text-shadow: 0px 0px 15px var(--selectBox);
+      background-image: linear-gradient(365deg, #ff5a5a 0%, #ff56a8 74%);
+    }
+  }
+
+  .toolContainer {
+    padding-top: 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 90%;
+  }
+  .bigAsideTools {
+    width: 45%;
+    height: 3rem;
+    & p {
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+  }
+  .swiperUpDown {
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+    & .nameTools {
+      display: block;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 1.5rem;
+      & img {
+        width: 1rem;
+      }
+    }
+    & .drag {
+      background-color: var(--lightWhite);
+      border-top: var(--borderWhite);
+      padding-top: 5px;
+      width: 100%;
+      height: 0.7rem;
+    }
+  }
+  .linesBar {
+    display: none;
+  }
+  .swiperUpDown .linesBar {
+    display: none;
+  }
+  .revelNavBtn {
+    display: block;
+  }
+  .navToggle {
+    display: none;
+  }
+
+  .revelNav.navigate {
+    display: block;
+  }
+  nav .navigate {
+    display: none;
+    position: absolute;
+    width: fit-content;
+    left: 0.4rem;
+    top: 3.5rem;
+
+    &::before {
+      top: -0.6rem;
+      left: 0.8rem;
+      position: absolute;
+      rotate: 135deg;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  .aside {
+    display: none;
+  }
+  .aside-m-left {
+    margin-left: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .toolContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .bigAsideTools {
+    width: 90%;
+
+    & p {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
   }
 }

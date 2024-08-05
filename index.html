@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Mix✨</title>
-    <!--==FavIcon==-->
+    <!--!=============================================================================FavIcon==-->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -23,20 +23,24 @@
       href="/Assets/Icons/FavIcons/favicon-16x16.png"
     />
     <link rel="manifest" href="/Assets/Icons/FavIcons/site.webmanifest" />
-    <!--==Fonts==-->
+    <!--!===============================================================================Fonts==-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
-    <!--==Style==-->
+    <!--!================================================================================Style==-->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="flex">
       <div class="logoContainer f-center">
         <div class="linesBar f-center" onclick="revelAside()">
+          <img src="Assets/Icons/3lines.svg" width="100%" alt="" />
+        </div>
+        <!-- this btn revel navbar before 600px and above will revel asidebar -->
+        <div class="f-center revelNavBtn" onclick="revelNavFun()">
           <img src="Assets/Icons/3lines.svg" width="100%" alt="" />
         </div>
         <div class="logo logoBlack f-center">
@@ -57,7 +61,6 @@
       <div class="rightContent f-center">
         <div class="navToggle" onclick="toggleNav()">
           <img src="Assets/Icons/navopen.svg" class="navOpen" />
-          <img src="Assets/Icons/navclose.svg" class="navClose" />
         </div>
         <div class="changeTheme f-center">
           <div id="sun">
@@ -78,7 +81,7 @@
         </div>
       </div>
     </nav>
-    <aside class="flex aside">
+    <aside class="transition flex aside">
       <div class="asideIcons iconsBg">
         <a href="#" data-page="/Pages/TextGradient/textGradient.html">
           <img src="Assets/Icons/text.svg" alt="" width="100%" />
@@ -140,11 +143,26 @@
         </a>
       </div>
     </aside>
-
     <div class="toggleAside bigtoggleAside">
+      <div class="swiperUpDown">
+        <div class="drag"><img src="Assets/Icons/move.svg" alt="" /></div>
+        <div class="nameAndClose">
+          <div class="nameTools">
+            Tools <img src="Assets/Icons/star.svg" alt="" />
+          </div>
+          <div class="UpDownBox f-center">
+            <img
+              src="Assets/Icons/arrow.svg"
+              width="40%"
+              alt=""
+              class="arrowUpDown"
+            />
+          </div>
+        </div>
+      </div>
       <div class="logoContainer f-center">
         <div class="linesBar f-center" onclick="revelAside()">
-          <img src="Assets/Icons/3lines.svg" width="100%" alt="" />
+          <img src="Assets/Icons/leftSideIcon.svg" width="100%" alt="" />
         </div>
         <div class="logo logoBlack f-center">
           <img src="Assets/Images/logo.png" width="100%" alt="logo" />
@@ -259,6 +277,8 @@
       </div>
     </div>
 
+    <!-- !================================================================================== -->
+    <div class="loader" id="loader"></div>
     <section class="aside-m-left-max displaySection aside-m-left">
       <div class="contentContainer">Tools pages are printing here</div>
     </section>

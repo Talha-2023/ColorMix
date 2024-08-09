@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!-- !===========================================================================MetaTags -->
+    <meta
+      name="description"
+      content="Explore a comprehensive suite of color tools designed for developers and designers. Create stunning gradients, discover trending palettes, pick colors from images, generate random colors, and more!"
+    />
+    <meta
+      name="keywords"
+      content="color tools, gradient creator, text gradient, color palettes, palette generator, image color picker, average image color, color picker, random colors, color shades, shadow generator, color converter"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color Mix✨</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Syed Talha Ahmed" />
+    <meta name="copyright" content="Color Mix Copyright" />
+    <meta
+      property="og:title"
+      content="Ultimate Color Tools for Developers - Gradient Creator, Palettes, Color Pickers & More"
+    />
+    <meta
+      property="og:description"
+      content="Explore a comprehensive suite of color tools designed for developers and designers. Create stunning gradients, discover trending palettes, pick colors from images, generate random colors, and more!"
+    />
+    <meta property="og:image" content="URL_to_your_image" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Ultimate Color Tools for Developers - Gradient Creator, Palettes, Color Pickers & More"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore a comprehensive suite of color tools designed for developers and designers. Create stunning gradients, discover trending palettes, pick colors from images, generate random colors, and more!"
+    />
+    <meta name="twitter:image" content="URL_to_your_image" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <title>Color Mix</title>
     <!--!=============================================================================FavIcon==-->
     <link
       rel="apple-touch-icon"
@@ -27,17 +61,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lobster&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <!--!================================================================================Style==-->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Pages/TextGradient/textGradient.css" />
   </head>
   <body>
     <nav class="flex">
       <div class="logoContainer f-center">
         <div class="linesBar f-center" onclick="revelAside()">
-          <img src="Assets/Icons/3lines.svg" width="100%" alt="" />
+          <img
+            src="Assets/Icons/3lines.svg"
+            width="100%"
+            height="auto"
+            alt="sideToggle"
+          />
         </div>
         <!-- this btn revel navbar before 600px and above will revel asidebar -->
         <div class="f-center revelNavBtn" onclick="revelNavFun()">
@@ -46,7 +86,8 @@
         <div class="logo logoBlack f-center">
           <img
             src="Assets/Images/logo.png"
-            width="100%"
+            width="120px"
+            height="35px"
             alt="logo"
             fetchpriority="high"
           />
@@ -143,7 +184,7 @@
         </a>
       </div>
     </aside>
-    <div class="toggleAside bigtoggleAside">
+    <div class="toggleAside swipeClose">
       <div class="swiperUpDown">
         <div class="drag"><img src="Assets/Icons/move.svg" alt="" /></div>
         <div class="nameAndClose">
@@ -282,6 +323,7 @@
     <section class="aside-m-left-max displaySection aside-m-left">
       <div class="contentContainer">Tools pages are printing here</div>
     </section>
-    <script src="main.js"></script>
   </body>
+  <script src="main.js"></script>
+  <!-- <script id="DYNAMIC_DISPLAY" src="" defer></script> -->
 </html>

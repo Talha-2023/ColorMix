@@ -41,8 +41,6 @@ let sun = document.querySelector("#sun");
 let moon = document.querySelector("#moon");
 
 sun.addEventListener("click", () => {
-  sun.style.display = "none";
-  moon.style.display = "block";
   document.documentElement.style.setProperty("--lightWhite", "#23272F");
   document.documentElement.style.setProperty("--darkWhite", "#1A1D23");
   document.documentElement.style.setProperty(
@@ -58,8 +56,13 @@ sun.addEventListener("click", () => {
     "--lightSelected",
     "linear-gradient(190deg,rgb(60, 214, 214) 0%,rgb(111, 0, 255) 100% )"
   );
+  document.documentElement.style.setProperty(
+    "--displayBg",
+    "linear-gradient(#1a1a1a, #1b1a1a)"
+  );
 
-  console.log("first");
+  sun.style.display = "none";
+  moon.style.display = "block";
 });
 moon.addEventListener("click", () => {
   document.documentElement.style.setProperty("--lightWhite", "#ffffff");
@@ -76,10 +79,13 @@ moon.addEventListener("click", () => {
     "--lightSelected",
     "linear-gradient( 190deg,rgb(157, 255, 255) 0%,rgb(206, 169, 255) 100%)"
   );
+  document.documentElement.style.setProperty(
+    "--displayBg",
+    "linear-gradient(#e6e6e6, #f3f3f3)"
+  );
 
   sun.style.display = "block";
   moon.style.display = "none";
-  console.log("first");
 });
 
 //!==================================================================PageSwitch
@@ -155,13 +161,27 @@ document.addEventListener("DOMContentLoaded", function () {
     loader.style.display = "none";
   }
 
+  //!======================================
   function loadPage(page) {
-    setTimeout(showLoader, 1);
+    showLoader();
 
     fetch(page)
       .then((response) => response.text())
       .then((html) => {
+        // Insert the HTML content
         contentDiv.innerHTML = html;
+
+        // Remove old scripts to avoid conflicts
+        removeOldScripts();
+
+        // Load the corresponding JavaScript file dynamically
+        const pageName = page.split("/").pop().replace(".html", "");
+        const scriptPath = `/Pages/${pageName}/${pageName}.js`;
+
+        // Load the script
+        loadScript(scriptPath);
+
+        // Update browser history
         history.pushState({ page }, "", `#${page}`);
         hideLoader();
       })
@@ -170,6 +190,25 @@ document.addEventListener("DOMContentLoaded", function () {
         hideLoader();
       });
   }
+
+  // Function to remove old script tags
+  function removeOldScripts() {
+    document
+      .querySelectorAll("script[data-dynamic]")
+      .forEach((script) => script.remove());
+  }
+
+  // Function to dynamically load a script
+  function loadScript(scriptPath) {
+    const script = document.createElement("script");
+    script.src = scriptPath;
+    script.setAttribute("data-dynamic", "true"); // Optional attribute
+    script.onload = () => console.log(`${scriptPath} loaded successfully.`);
+    script.onerror = () => console.error(`Error loading script ${scriptPath}.`);
+    document.body.appendChild(script);
+  }
+
+  //!======================================
 
   function setActiveLink(link) {
     const page = link.getAttribute("data-page");
@@ -205,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const initialPage =
-    location.hash.replace("#", "") || "/Pages/TextGradient/textGradient.html";
+    location.hash.replace("#", "") || "/Pages/textGradient/textGradient.html";
 
   loadPage(initialPage);
 
@@ -254,16 +293,16 @@ let touchEndY = 0;
 
 function handleGesture() {
   if (touchStartY > touchEndY) {
-    toggleAside.style.transform = "translateY(0)";
+    // toggleAside.style.transform = "translateY(0)";
     arrowUpDown.classList.toggle("handleTranslate");
-
+    toggleAside.classList.replace("swipeClose", "swipeOpen");
     // console.log("trigger up");
     // console.log("start: " + touchStartY);
     // console.log("end: " + touchEndY);
   } else if (touchStartY < touchEndY) {
-    toggleAside.style.transform = "translateY(88%)";
+    // toggleAside.style.transform = "translateY(88%)";
     arrowUpDown.classList.toggle("handleTranslate");
-
+    toggleAside.classList.replace("swipeOpen", "swipeClose");
     // console.log("trigger down");
     // console.log("start: " + touchStartY);
     // console.log("end: " + touchEndY);
@@ -281,7 +320,6 @@ swipeBox.addEventListener(
   "touchend",
   function (e) {
     touchEndY = e.changedTouches[0].screenY;
-
     handleGesture();
   },
   false
@@ -293,8 +331,13 @@ arrowUpDown.addEventListener("click", () => {
   arrowUpDown.classList.toggle("handleTranslate");
   let up = arrowUpDown.classList.contains("handleTranslate");
   if (up) {
-    toggleAside.style.transform = "translateY(0)";
+    // toggleAside.style.transform = "translateY(0)";
   } else {
-    toggleAside.style.transform = "translateY(88%)";
+    // toggleAside.style.transform = "translateY(88%)";
   }
 });
+
+//==============================
+function showHide() {
+  console.log("click");
+}

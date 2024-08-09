@@ -1,11 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Text Gradient</h1>
-  </body>
-</html>
+<section class="Text_Main_container">
+  <div class="Text_Main_Heading f-center">
+    <img src="../../Assets/Icons/text.svg" alt="" width="40px" />
+    <h1>Text Gradinet</h1>
+  </div>
+  <div class="text_Gradient_Display">
+    <div class="text_display_container">
+      <div class="text">
+        <p class="userText">Life is tough, but so are you.</p>
+      </div>
+      <div class="editContainer">
+        <div class="edit ShowHide">
+          <div class="fontAndSizeSelector">
+            <div class="font appsStyle">
+              <p class="fontName_userSelected">Squad</p>
+              <img src="../../Assets/Icons/arrow.svg" alt="" width="10px" />
+              <div id="fontDrop" class="fontDisplay ShowHide">
+                <ul>
+                  <li data-font>Inter</li>
+                  <li data-font>Josefin</li>
+                  <li data-font>Lobster</li>
+                  <li data-font class="selected defaultFont">Squad</li>
+                  <li data-font>Coffie</li>
+                  <li data-font>Impact</li>
+                  <li data-font>Unirlove</li>
+                </ul>
+              </div>
+            </div>
+            <div class="size appsStyle">
+              <p class="sizeName_UserSelected">Medium</p>
+              <img src="../../Assets/Icons/arrow.svg" alt="" width="10px" />
+              <div id="sizeDrop" class="fontDisplay ShowHide">
+                <ul>
+                  <li data-size>Small</li>
+                  <li data-size class="selected defaultSize">Medium</li>
+                  <li data-size>Large</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="inputAndReset">
+            <input
+              class="textEdit_Input appsStyle"
+              type="text"
+              maxlength="100"
+              value="Life is tough, and so are you. "
+            />
+            <img
+              src="../../Assets/Icons/reset.svg"
+              width="20px"
+              class="resetIcon"
+            />
+          </div>
+        </div>
+        <div class="editIcon iconsBg">
+          <img src="../../Assets/Icons/Edit.svg" alt="" width="25px" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- fontchange, sizeinc, edittext -->

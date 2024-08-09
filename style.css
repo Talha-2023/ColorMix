@@ -35,6 +35,7 @@ ul li {
     rgb(172, 255, 243) 0%,
     rgb(156, 162, 255) 100%
   );
+  --displayBg: linear-gradient(#e6e6e6, #f3f3f3);
 
   /* dark */
   --lightBlack: #11121e;
@@ -53,6 +54,7 @@ ul li {
   --icon-bg: #fcfdff;
   --selectBox: #dbe9ff;
   --border-r-default: 0.5rem;
+  --smoothAnimation: smoothFade 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
 html * {
@@ -108,11 +110,12 @@ nav {
   width: 100vw;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .logoContainer {
   /* border: 1px solid red; */
   width: fit-content;
-  gap: 2rem;
+  gap: 1.7rem;
 }
 
 .logo {
@@ -123,7 +126,8 @@ nav {
 .logoBlack {
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0px 4px 0px 5px white;
+  box-shadow: 0px 4px 0px 3px white, 7px 4px 0px 4px white,
+    -7px 4px 0px 4px white;
 }
 
 .linesBar,
@@ -172,8 +176,9 @@ nav .navigate li {
     rgb(60, 214, 214) 0%,
     rgb(111, 0, 255) 100%
   );
+  color: white;
+  font-weight: 700;
 
-  font-weight: 500;
   border-radius: var(--border-r-default);
 
   &:hover {
@@ -327,6 +332,8 @@ aside::-webkit-scrollbar-track {
   padding-top: 1rem;
   transform: translateX(-15rem);
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* border: 1px solid red; */
+  z-index: 1;
 }
 
 /**==================bigaside============*/
@@ -499,7 +506,7 @@ a {
     border-radius: 12px;
     border: var(--borderWhite);
     box-shadow: var(--smooth-Box-Shadow);
-    animation: smoothFade 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation: var(--smoothAnimation);
     &::before {
       content: "";
       width: 1.5rem;
@@ -543,7 +550,7 @@ a {
     display: block;
   }
   nav .navigate {
-    animation: smoothFade 0.2s cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation: var(--smoothAnimation);
 
     display: none;
     position: absolute;
@@ -587,10 +594,15 @@ a {
   }
 }
 @media screen and (max-width: 600px) {
+  .toggleAside.swipeOpen {
+    transform: translateX(0rem) translateY(0%);
+  }
+  .toggleAside.swipeClose {
+    transform: translateX(0rem) translateY(88%);
+  }
   .toggleAside {
     top: auto;
     bottom: 0;
-    transform: translateX(0rem) translateY(88%);
     width: 100%;
     height: fit-content;
     padding: 0;
@@ -697,7 +709,6 @@ a {
     margin-left: 0.5rem;
   }
 }
-
 @media screen and (max-width: 300px) {
   .toolContainer {
     display: flex;
@@ -711,5 +722,12 @@ a {
       font-size: 0.9rem;
       font-weight: 700;
     }
+  }
+}
+
+/* ==============For */
+@media screen and (max-width: 750px) {
+  .aside.transition {
+    transform: translateX(0rem);
   }
 }

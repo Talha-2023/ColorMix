@@ -10,7 +10,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--darkWhite);
+  background-color: var(--lightWhite);
   overflow: hidden;
 }
 a {
@@ -73,7 +73,7 @@ html * {
   text-transform: capitalize;
 }
 .aside-m-left {
-  margin-top: 3.8rem;
+  margin-top: 3.6rem;
   margin-left: 3rem;
 }
 .aside-m-left-max {
@@ -134,9 +134,8 @@ nav {
 .revelNavBtn {
   width: 1.3rem;
   margin-top: 0.45rem;
-
   cursor: pointer;
-  /* background-color: rebeccapurple;  */
+
   & img {
     filter: var(--svgColor);
   }
@@ -346,13 +345,18 @@ aside::-webkit-scrollbar-track {
   overflow: auto;
   height: 100%;
   padding: 2rem 1rem;
-  /* border: 1px solid red; */
 }
 .toggleAside .logoContainer {
-  padding: 0 0.7rem;
+  margin-top: -15px;
+  margin-left: 3px;
+
   .linesBar {
-    width: 1.5rem;
+    width: 1.3rem;
     rotate: 180deg;
+    background-color: var(--selectBox);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-sizing: content-box;
   }
 }
 .bigtoggleAside {
@@ -437,6 +441,19 @@ a {
   justify-content: center;
   overflow: auto;
   max-height: calc(100vh - 3.8rem);
+  position: relative;
+}
+.displaySection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("Assets/Images/Pattern_30.png");
+  filter: grayscale(100%);
+  z-index: -1;
+  opacity: 0.1;
 }
 .displaySection::-webkit-scrollbar,
 .toolContainer::-webkit-scrollbar {
@@ -706,7 +723,7 @@ a {
     display: none;
   }
   .aside-m-left {
-    margin-left: 0.5rem;
+    margin-left: 0rem;
   }
 }
 @media screen and (max-width: 300px) {

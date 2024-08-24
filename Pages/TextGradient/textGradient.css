@@ -70,8 +70,8 @@
 }
 .text_Gradient_Display {
   border: var(--borderWhite);
-  background-color: var(--lightWhite);
-  height: 100vh;
+  background-color: var(--darkWhite);
+  height: fit-content;
   border-radius: 1rem;
   box-shadow: var(--smooth-Box-Shadow);
   padding: 1rem;
@@ -88,8 +88,9 @@
   box-shadow: var(--smooth-Box-Shadow);
   border-radius: 1rem;
   padding: 2rem 2rem 0rem;
-  background: var(--displayBg);
+  background: var(--lightWhite);
   /* border: 1px solid red; */
+  /* background: #edf2f4; */
   position: relative;
 }
 
@@ -105,7 +106,7 @@
   font-size: 3rem;
   font-family: BoldSquad;
   text-align: center;
-  background-image: linear-gradient(#4158d0, #c850c0);
+  background-image: linear-gradient(180deg, #4158d0, #c850c0);
   background-clip: text;
   color: transparent;
   font-weight: 900;
@@ -172,6 +173,7 @@
 }
 .resetIcon {
   cursor: pointer;
+  filter: var(--svgColor);
 }
 
 #fontDrop {
@@ -208,6 +210,7 @@
   margin-bottom: 10px;
   margin-right: -20px;
   position: relative;
+  z-index: 9999;
 }
 .editIcon {
   padding: 0.2rem;
@@ -223,7 +226,7 @@
   margin-left: auto;
   position: absolute;
   right: 2.3rem;
-  bottom: -4rem;
+  bottom: -3rem;
   padding: 1rem 2rem;
   background-color: var(--darkWhite);
   border: var(--borderWhite);
@@ -239,6 +242,248 @@
   display: flex;
   gap: 1rem;
 }
+.directionAndReset {
+  display: flex;
+  gap: 1rem;
+  width: auto;
+}
+.colorContainer {
+  width: fit-content;
+  border: var(--borderWhite);
+  border-radius: 16px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--lightWhite);
+}
+.colorInputContainer {
+  /* border: 1px solid red; */
+  position: relative;
+  width: fit-content;
+}
+.colorInpDiv {
+  border: var(--borderWhite);
+  width: fit-content;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 6px;
+  left: 7px;
+}
+.colorInputColor {
+  width: 35px;
+  height: 35px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  transform: scale(1.7);
+}
+
+.colorInputText {
+  width: 9rem;
+  height: 50px;
+  padding: 0.5rem;
+  padding-left: 3.2rem;
+  border-radius: 0.5rem;
+  border: var(--borderWhite);
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--darkWhite);
+  &:focus {
+    border: 1px solid purple;
+  }
+}
+.directionContiner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pDirection {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.direction {
+  width: 5.4rem;
+  height: 50px;
+  padding: 0.5rem 0.5rem;
+
+  border-radius: 0.5rem;
+  border: var(--borderWhite);
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--darkWhite);
+  &:focus {
+    border: 1px solid purple;
+  }
+}
+.cdReset {
+  filter: var(--svgColor);
+  border: var(--borderWhite);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.deg {
+  position: absolute;
+  right: 10px;
+  user-select: none;
+}
+.codeContainer {
+  background-color: #1c2434;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  margin: 3rem auto;
+  border-radius: 1.2rem;
+  box-shadow: var(--smooth-Box-Shadow);
+}
+.top {
+  width: 100%;
+  height: 40px;
+  padding: 1.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.codeLogo {
+  display: flex;
+  gap: 0.4rem;
+  & .circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+}
+.codeLogo .circle:nth-child(1) {
+  background-color: #ff5f5a;
+}
+
+.codeLogo .circle:nth-child(2) {
+  background-color: #ffbe2e;
+}
+.codeLogo .circle:nth-child(3) {
+  background-color: #2aca44;
+}
+.copy {
+  filter: invert(80%);
+  cursor: pointer;
+}
+.bottom {
+  overflow-y: scroll;
+  overflow-y: hidden;
+  height: calc(100% - 75px);
+  margin: 1rem 1rem;
+}
+.bottom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bottom::-webkit-scrollbar-track {
+  background-color: #1c2434;
+  border-radius: 10px;
+}
+
+.bottom::-webkit-scrollbar-thumb {
+  background-color: white;
+
+  border-radius: 10px;
+  border: 5px solid #1c2434;
+}
+
+.bottom::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(202, 202, 202);
+}
+.code {
+  text-wrap: nowrap;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+}
+
+.selector,
+.selectorClose {
+  color: #ffae57;
+}
+.properties {
+  color: #b99ef3;
+  margin-left: 0.7rem;
+}
+.setDeg,
+.setColor1,
+.setColor2 {
+  color: #b99ef3;
+}
+
+.propertyName {
+  color: #5ac9e0;
+}
+#cssOutput {
+  position: absolute;
+  bottom: 1000%;
+}
+.Copied {
+  display: flex;
+  gap: 0.5rem;
+  position: relative;
+}
+.copyPop {
+  background-color: #2aca44;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  color: #1c2434;
+  position: relative;
+  animation: copy 2s ease-out;
+  display: none;
+  position: absolute;
+  left: -80px;
+  top: -10px;
+  &::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #2aca44;
+    position: absolute;
+    rotate: 45deg;
+    top: 15px;
+  }
+}
+
+@keyframes copy {
+  0% {
+    transform: translateX(100%);
+    scale: 0;
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(0%);
+    scale: 1;
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(0%);
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    transform: translateX(500%);
+    opacity: 0;
+    scale: 0;
+  }
+}
 @media screen and (max-width: 800px) {
   .edit {
     display: flex;
@@ -250,6 +495,9 @@
   }
   .text_display_container {
     margin-top: 1rem;
+  }
+  .ShowHide {
+    display: none;
   }
 }
 @media screen and (max-width: 450px) {
@@ -282,5 +530,16 @@
     bottom: -11rem;
     right: 0;
     padding: 1rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .directionAndReset {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .deg {
+    right: 45px;
+    bottom: 15px;
   }
 }

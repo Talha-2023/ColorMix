@@ -331,9 +331,9 @@ arrowUpDown.addEventListener("click", () => {
   arrowUpDown.classList.toggle("handleTranslate");
   let up = arrowUpDown.classList.contains("handleTranslate");
   if (up) {
-    // toggleAside.style.transform = "translateY(0)";
+    toggleAside.classList.replace("swipeClose", "swipeOpen");
   } else {
-    // toggleAside.style.transform = "translateY(88%)";
+    toggleAside.classList.replace("swipeOpen", "swipeClose");
   }
 });
 

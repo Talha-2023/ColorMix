@@ -4,6 +4,7 @@
     <h1>Text Gradinet</h1>
   </div>
   <div class="text_Gradient_Display">
+    <!-- Text Display -->
     <div class="text_display_container">
       <div class="text">
         <p class="userText">Life is tough, but so are you.</p>
@@ -57,6 +58,112 @@
         </div>
       </div>
     </div>
+
+    <!-- Color display -->
+
+    <div class="colorContainer">
+      <div class="colorInputContainer">
+        <div class="colorInpDiv">
+          <input
+            type="color"
+            class="colorInputColor"
+            value="#4158d0"
+            id="colorInputColor1"
+          />
+        </div>
+        <input
+          type="text"
+          class="colorInputText"
+          placeholder="#000000"
+          maxlength="7"
+          value="#4158d0"
+          id="colorInputText1"
+        />
+      </div>
+      <div class="colorInputContainer">
+        <div class="colorInpDiv">
+          <input
+            type="color"
+            class="colorInputColor"
+            value="#c850c0"
+            id="colorInputColor2"
+          />
+        </div>
+        <input
+          type="text"
+          class="colorInputText"
+          placeholder="#000000"
+          maxlength="7"
+          value="#c850c0"
+          id="colorInputText2"
+        />
+      </div>
+      <div class="directionAndReset">
+        <div class="directionContiner">
+          <p class="pDirection">Direction:</p>
+          <input
+            type="text"
+            class="direction"
+            value="180"
+            maxlength="3"
+            id="direction"
+            placeholder="180"
+          />
+          <label for="direction" class="deg">Deg</label>
+        </div>
+        <img
+          src="../../Assets/Icons/reset.svg"
+          alt=""
+          width="20px"
+          class="cdReset"
+          id="cdReset"
+        />
+      </div>
+    </div>
+
+    <div class="codeContainer">
+      <div class="top">
+        <div class="codeLogo">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+
+        <div class="Copied">
+          <p class="copyPop">Copied</p>
+          <img
+            src="../../Assets/Icons/copy.svg"
+            alt="copy"
+            width="20px"
+            class="copy"
+            id="copyButton"
+          />
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="code">
+          <p class="selector">p {</p>
+          <p class="properties">
+            <span class="propertyName">background:</span>
+            linear-gradient(<span class="setDeg">180deg</span>,
+            <span class="setColor1">#4158d0</span>,
+            <span class="setColor2">#c850c0</span> ); <br />
+            <span class="propertyName">-webkit-background-clip:</span> text;
+            <br />
+            <span class="propertyName">-webkit-text-fill-color:</span>
+            transparent; <br />
+            <span class="propertyName"> background-clip:</span>
+            text; <br />
+            <span class="propertyName"> color:</span>
+            transparent; <br />
+          </p>
+          <p class="selectorClose">}</p>
+        </div>
+      </div>
+    </div>
+
+    <pre id="cssOutput"></pre>
   </div>
 </section>
+
 <!-- fontchange, sizeinc, edittext -->
